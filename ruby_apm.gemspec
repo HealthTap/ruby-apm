@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
 
   # TODO: add a build option to specify agent library
   spec.add_dependency('newrelic_rpm')
+  spec.add_dependency('activesupport', '>= 6.0.0')
 end

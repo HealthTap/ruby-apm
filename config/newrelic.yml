@@ -5,6 +5,8 @@
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
+# TODO: if we separated out consul from all services into one gem, then depend on that gem here, we could allow
+# a more flexible config adjustment without having to update the gem/hash- at worst we'd need to restart the pod(s)
 common: &default_settings
   # Required license key associated with your New Relic account.
   license_key: <%= RubyApm.config.newrelic[:license_key] %>

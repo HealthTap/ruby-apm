@@ -1,4 +1,6 @@
-require "ruby_apm/version"
+require 'ruby_apm/version'
+require 'active_support/core_ext/hash/indifferent_access'
+require 'active_support/core_ext/hash/deep_merge'
 
 module RubyApm
   class Config
@@ -25,7 +27,7 @@ module RubyApm
   def self.configure_agent
     case config.agent
     when :newrelic
-      config.newrelic ||= {}
+      config.newrelic = (config.newrelic || {}).with_indifferent_access
       require 'newrelic_rpm'
 
       control_instance = NewRelic::Control.instance
@@ -36,7 +38,7 @@ module RubyApm
       control_instance.init_plugin
       agent = NewRelic::Agent
       agent.config.replace_or_add_config(
-        agent::Configuration::ManualSource.new(config.newrelic)
+        agent::Configuration::ManualSource.new(config.newrelic.deep_merge(config.newrelic[control_instance.env] || {}))
       )
     else
       raise NotImplementedError('Unrecognized APM agent')
