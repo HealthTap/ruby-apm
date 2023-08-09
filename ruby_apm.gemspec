@@ -1,8 +1,8 @@
-require_relative 'lib/apm/version'
+require_relative 'lib/ruby_apm/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "apm"
-  spec.version       = Apm::VERSION
+  spec.name          = "ruby-apm"
+  spec.version       = RubyApm::VERSION
   spec.authors       = ["Mike Collins"]
   spec.email         = ["mike.collins@healthtap.com"]
 

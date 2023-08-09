@@ -1,6 +1,6 @@
-require "apm/version"
+require "ruby_apm/version"
 
-module Apm
+module RubyApm
   class Config
     attr_accessor :app_name
     # overrides for APM agent config - we could abstract this, but feature sets may differ

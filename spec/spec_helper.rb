@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "apm"
+require "ruby_apm"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

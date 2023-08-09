@@ -1,6 +1,6 @@
-RSpec.describe Apm do
+RSpec.describe RubyApm do
   it "has a version number" do
-    expect(Apm::VERSION).not_to be nil
+    expect(RubyApm::VERSION).not_to be nil
   end
 
   describe '.configure' do

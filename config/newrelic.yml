@@ -7,11 +7,11 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: <%= Apm.config.newrelic[:license_key] %>
+  license_key: <%= RubyApm.config.newrelic[:license_key] %>
 
   # Your application name. Renaming here affects where data displays in New
   # Relic. For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: <%= "#{Apm.config.app_name} (#{NewRelic::Control.instance.env})" %>
+  app_name: <%= "#{RubyApm.config.app_name} (#{NewRelic::Control.instance.env})" %>
 
   # To disable the agent regardless of other settings, uncomment the following:
   # agent_enabled: false

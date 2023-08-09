@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in apm.gemspec
+# Specify your gem's dependencies in ruby_apm.gemspec
 gemspec
 
 gem "rake", "~> 12.0"
