@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'lib/ruby_apm/version'
+require_relative 'lib/ruby_apm/agent'
+require_relative 'lib/ruby_apm/agent/adapter'
+require_relative 'lib/ruby_apm/agent/newrelic'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ruby_apm'
@@ -39,5 +42,12 @@ Gem::Specification.new do |spec|
 
   # TODO: add a build option to specify agent library
   spec.add_dependency('activesupport', '>= 6.0.0')
-  spec.add_dependency('newrelic_rpm')
+
+  RubyApm::Agent.adapter::DEPENDENCIES.each do |dependency|
+    if dependency.is_a?(Array)
+      spec.add_dependency(*dependency)
+    else
+      spec.add_dependency(dependency)
+    end
+  end
 end

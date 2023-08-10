@@ -9,7 +9,6 @@ RSpec.describe RubyApm do
     subject do
       described_class.configure do |config|
         config.app_name = app_name
-        config.agent = agent
         config.send("#{agent}=", overrides)
       end
     end
@@ -38,7 +37,7 @@ RSpec.describe RubyApm do
         end
 
         it 'returns the correct overrides' do
-          expect(described_class.config.agent).to be(:newrelic)
+          expect(described_class::Agent.adapter).to be(described_class::Agent::NewRelic)
           expect(described_class.config.newrelic).to eql(overrides)
           expect(NewRelic::Agent.config[:app_name].first).to eql("#{app_name} (#{env.capitalize})")
 
