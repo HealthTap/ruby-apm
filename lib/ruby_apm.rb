@@ -2,6 +2,7 @@
 
 require 'ruby_apm/version'
 require 'ruby_apm/agent'
+require 'active_support'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/core_ext/hash/deep_merge'
 
