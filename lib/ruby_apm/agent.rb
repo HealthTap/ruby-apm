@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'agent/adapter'
+require_relative 'agent/newrelic'
+
 module RubyApm
   # root module representing supported APM agents and associated functionality
   module Agent
