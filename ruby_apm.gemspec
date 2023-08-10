@@ -2,8 +2,6 @@
 
 require_relative 'lib/ruby_apm/version'
 require_relative 'lib/ruby_apm/agent'
-require_relative 'lib/ruby_apm/agent/adapter'
-require_relative 'lib/ruby_apm/agent/newrelic'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ruby_apm'
