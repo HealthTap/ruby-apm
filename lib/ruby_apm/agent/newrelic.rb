@@ -7,10 +7,11 @@ module RubyApm
       DEPENDENCIES = ['newrelic_rpm'].freeze
 
       if defined?(Rails)
+        # tracers for Rails apps
         class Railtie < Rails::Railtie
           initializer 'newrelic_rpm.include_method_tracers', before: :load_config_initializers do
-            Module.send(:include, NewRelic::Agent::MethodTracer::ClassMethods)
-            Module.send(:include, NewRelic::Agent::MethodTracer)
+            Module.include(::NewRelic::Agent::MethodTracer::ClassMethods)
+            Module.include(::NewRelic::Agent::MethodTracer)
           end
         end
       end
