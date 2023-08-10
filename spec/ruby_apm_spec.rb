@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 RSpec.describe RubyApm do
-  it "has a version number" do
+  it 'has a version number' do
     expect(RubyApm::VERSION).not_to be nil
   end
 
@@ -36,7 +38,7 @@ RSpec.describe RubyApm do
         end
 
         it 'returns the correct overrides' do
-          expect(described_class.config.agent).to eql(:newrelic)
+          expect(described_class.config.agent).to be(:newrelic)
           expect(described_class.config.newrelic).to eql(overrides)
           expect(NewRelic::Agent.config[:app_name].first).to eql("#{app_name} (#{env.capitalize})")
 

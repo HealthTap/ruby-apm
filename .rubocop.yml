@@ -1,0 +1,19 @@
+require:
+  - rubocop-rake
+  - rubocop-rspec
+
+Metrics/BlockLength:
+  Max: 100
+Metrics/MethodLength:
+  Max: 25
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 10
+RSpec/MultipleExpectations:
+  Max: 5
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+RSpec/NestedGroups:
+  Max: 5
