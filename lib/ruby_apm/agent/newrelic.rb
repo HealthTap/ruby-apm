@@ -7,6 +7,7 @@ module RubyApm
       DEPENDENCIES = ['newrelic_rpm'].freeze
 
       if defined?(Rails)
+        require 'new_relic/agent'
         # tracers for Rails apps
         class Railtie < Rails::Railtie
           initializer 'newrelic_rpm.include_method_tracers', before: :load_config_initializers do
