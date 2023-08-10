@@ -8,16 +8,25 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Mike Collins']
   spec.email         = ['mike.collins@healthtap.com']
 
-  spec.summary       = 'Abstract instrumentation and centralize amongst connected services' # TODO
-  spec.description   = 'Abstract instrumentation and centralize amongst connected services' # TODO
-  spec.homepage      = 'https://github.com/healthtap' # TODO
+  spec.summary       = 'Abstract and centralize APM instrumentation & config amongst cluster of services.'
+  spec.description   = <<~DESCRIPTION
+    Intended to DRY up and abstract APM configurations between multiple ruby services in a cluster. Eventually, if we
+    can separate out Consul agent / APP_CONFIG into its own gem, we can depend on that here and allow for more robust
+    and dynamic configurations. I.e. we default to a root consul config per environment, which can be adjusted without
+    needing to update gem or gemfile.lock revisions in services. With the current setup, services can point to Consul
+    for any overrides, but this is specific to the service within a given environment, so we don't have the ability to
+    set a default root configuration for an environment cluster without having to update the revision hash in dependent
+    services.'
+  DESCRIPTION
+
+  spec.homepage = 'https://github.com/healthtap/ruby-apm/README.md'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
 
   spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/healthtap' # TODO
-  spec.metadata['changelog_uri'] = 'https://github.com/healthtap' # TODO
+  spec.metadata['source_code_uri'] = 'https://github.com/healthtap/ruby-apm'
+  spec.metadata['changelog_uri'] = 'https://github.com/healthtap/ruby-apm/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
