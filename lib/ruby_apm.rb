@@ -28,17 +28,19 @@ module RubyApm
     case config.agent
     when :newrelic
       config.newrelic = (config.newrelic || {}).with_indifferent_access
-      require 'newrelic_rpm'
+      require 'new_relic/agent'
 
       control_instance = NewRelic::Control.instance
       def control_instance.config_file_path
         "#{File.dirname(__FILE__)}/../config/newrelic.yml"
       end
 
-      control_instance.init_plugin
       agent = NewRelic::Agent
+      agent.manual_start
       agent.config.replace_or_add_config(
-        agent::Configuration::ManualSource.new(config.newrelic.deep_merge(config.newrelic[control_instance.env] || {}))
+        agent::Configuration::ManualSource.new(
+          config.newrelic.deep_merge(config.newrelic[control_instance.env] || {})
+        )
       )
     else
       raise NotImplementedError('Unrecognized APM agent')
