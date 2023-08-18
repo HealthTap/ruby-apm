@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   DESCRIPTION
 
   spec.homepage = 'https://github.com/healthtap/ruby-apm/README.md'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.6.0')
 
   spec.metadata['allowed_push_host'] = ''
 
