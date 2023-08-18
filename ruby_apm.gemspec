@@ -39,8 +39,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # TODO: add a build option to specify agent library
-  spec.add_dependency('activesupport', '>= 6.0.0')
-
   RubyApm::Agent.adapter::DEPENDENCIES.each do |dependency|
     if dependency.is_a?(Array)
       spec.add_dependency(*dependency)
