@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   DESCRIPTION
 
   spec.homepage = 'https://github.com/healthtap/ruby-apm/README.md'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.6.0')
 
   spec.metadata['allowed_push_host'] = ''
 
@@ -39,8 +39,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # TODO: add a build option to specify agent library
-  spec.add_dependency('activesupport', '>= 6.0.0')
-
   RubyApm::Agent.adapter::DEPENDENCIES.each do |dependency|
     if dependency.is_a?(Array)
       spec.add_dependency(*dependency)
